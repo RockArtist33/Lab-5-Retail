@@ -38,8 +38,7 @@ x2 = 0
 y2 = 0
 
 columns = list(testdf2.columns)
-tree = ttk.Treeview(window,height=20)
-tree.grid(column=0,row=0)
+tree = ttk.Treeview(window,height=10)
 tree.configure(columns=columns)
 print(columns)
 tree.column("# 0", anchor="w",width = 40)
@@ -49,6 +48,24 @@ for index in columns:
 
 for ind, rows in testdf2.iterrows():
     tree.insert("",0,text=ind,values=list(rows))
+
+def show_table():
+    tree.grid(column=0,row=0)
+
+def hide_table():
+    tree.grid_forget()
+
+button1 = tk.Button(
+    text= "Show",
+    command= show_table
+)
+
+button2 = tk.Button(
+    text= "Remove",
+    command=hide_table
+)
+button1.grid(column=0,row=1)
+button2.grid(column=0,row=2) 
 
 """
 def update():
