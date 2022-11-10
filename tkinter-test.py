@@ -7,7 +7,8 @@ def plt_plot():
     x = [1,3,5,7,9]
     y = [3,6,9,12,18]
     plt.scatter(x,y)
-    plt.fill_between(x,y[2])
+    for index in range(0,len(x)):
+        plt.fill_between(x[index],y[index])
     plt.show()
 
 Welcome = tk.Button(text="Python rocks!",
